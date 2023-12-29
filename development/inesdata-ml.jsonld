@@ -1,4 +1,40 @@
 {
+    "@id": "https://w3id.org/inesdata#",
+    "name": [
+         "Inesdata ML schema"
+    ],
+    "version": "0.0.1",
+    "url": {
+         "@id": "https://w3id.org/inesdata/0.0.1"
+    },
+    "schemaVersion": {
+         "@id": "http://schema.org/version/10.0/"
+    },
+    "isBasedOn": [
+         {
+              "@id": "http://schema.org/version/10.0/"
+         },
+         {
+              "@id": "https:w3id.org/codemeta"
+         },
+         {
+              "@id": "http://www.w3.org/ns/prov#"
+         }
+    ],
+    "license": {
+         "@id": "https://spdx.org/licenses/Apache-2.0"
+    },
+    "author":[
+        {
+            "@id": "https://orcid.org/0000-0003-0454-7145"
+        },
+        {
+            "@id": "https://orcid.org/0000-0002-8922-7521"
+        },
+        {
+            "@id": "https://portalcientifico.upm.es/en/ipublic/researcher/305816"
+        }
+    ],
     "@context": {
         "ind": "https://w3id.org/inesdata#",
         "schema": "http://schema.org/",
@@ -226,7 +262,7 @@
         {
             "@id": "ind:task",
             "@type": "Property",
-            "label": "Task",
+            "label": "task",
             "comment": "Task for which the model was trained or fine tuned. E.g., image classification, sentiment analysis, etc.",
             "domain": {"@id": "ind:MLModel"},
             "range": {"@id": "schema:Text"}
@@ -276,7 +312,7 @@
             "@type": "Property",
             "label": "quantization bits",
             "comment": "Number of bits used for model distribution quantization. E.g., 2 bits.",
-            "domain": {"@id": "ind:MLModel"},
+            "domain": {"@id": "ind:MLModelDownload"},
             "range": {"@id": "schema:Text"}
         }
     ]

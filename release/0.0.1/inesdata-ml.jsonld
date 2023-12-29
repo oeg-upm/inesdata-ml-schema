@@ -1,0 +1,319 @@
+{
+    "@id": "https://w3id.org/inesdata#",
+    "name": [
+         "Inesdata ML schema"
+    ],
+    "version": "0.0.1",
+    "url": {
+         "@id": "https://w3id.org/inesdata/0.0.1"
+    },
+    "schemaVersion": {
+         "@id": "http://schema.org/version/10.0/"
+    },
+    "isBasedOn": [
+         {
+              "@id": "http://schema.org/version/10.0/"
+         },
+         {
+              "@id": "https:w3id.org/codemeta"
+         },
+         {
+              "@id": "http://www.w3.org/ns/prov#"
+         }
+    ],
+    "license": {
+         "@id": "https://spdx.org/licenses/Apache-2.0"
+    },
+    "author":[
+        {
+            "@id": "https://orcid.org/0000-0003-0454-7145"
+        },
+        {
+            "@id": "https://orcid.org/0000-0002-8922-7521"
+        },
+        {
+            "@id": "https://portalcientifico.upm.es/en/ipublic/researcher/305816"
+        }
+    ],
+    "@context": {
+        "ind": "https://w3id.org/inesdata#",
+        "schema": "http://schema.org/",
+        "codemeta": "https://w3id.org/codemeta/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "subClassOf": { "@id": "rdfs:subClassOf"},
+        "label": { "@id": "rdfs:label" },
+        "Class": { "@id": "rdfs:Class" },
+        "comment": { "@id": "rdfs:comment" },
+        "Property": { "@id": "rdf:Property" },
+        "domain": { "@id": "rdfs:domain" },
+        "range": { "@id": "rdfs:range" },
+
+        "Date": { "@id": "schema:Date" },
+        "Duration": { "@id": "schema:Duration" },
+        "Number": { "@id": "schema:Number" },
+        "Text": { "@id": "schema:Text" },
+        "URL": { "@id": "schema:URL" },
+
+        "Action": { "@id": "schema:Action" },
+        "CreativeWork": { "@id": "schema:CreativeWork" },
+        "Dataset": { "@id": "schema:Dataset" },
+        "MediaObject": { "@id": "schema:MediaObject" },
+        "Organization": { "@id": "schema:Organization" },
+        "Person": { "@id": "schema:Person" },
+        "Place": { "@id": "schema:Place" },  
+
+        "about": { "@id": "schema:about" },
+        "author": { "@id": "schema:author" },
+        "citation": { "@id": "schema:citation" },
+        "codeRepository": { "@id": "schema:codeRepository" },
+        "contentUrl": { "@id": "schema:contentUrl" },
+        "contentSize": { "@id": "schema:contentSize" },
+        "dateCreated": { "@id": "schema:dateCreated" },
+        "dateModified": { "@id": "schema:dateModified" },
+        "description": { "@id": "schema:description" },
+        "distribution": { "@id": "schema:distribution" },
+        "duration": { "@id": "schema:duration" },
+        "encodingFormat": { "@id": "schema:encodingFormat" },
+        "funder": { "@id": "schema:funder" },
+        "headline": { "@id": "schema:headline" },
+        "identifier": { "@id": "schema:identifier" },
+        "inLanguage": { "@id": "schema:inLanguage" },
+        "keywords": { "@id": "schema:keywords" },
+        "license": { "@id": "schema:license" },
+        "name": { "@id": "schema:name" },
+        "memoryRequirements": { "@id": "schema:memoryRequirements" },
+        "operatingSystem": { "@id": "schema:operatingSystem" },
+        "processorRequirements": { "@id": "schema:processorRequirements" },
+        "softwareRequirements": { "@id": "schema:softwareRequirements" },
+        "sdLicense": { "@id": "schema:sdLicense" },
+        "sdPublisher": { "@id": "schema:sdPublisher" },
+        "storageRequirements": { "@id": "schema:storageRequirements" },
+        "successorOf": { "@id": "schema:successorOf" },
+        "version": { "@id": "schema:version" },
+
+        "developmentStatus": { "@id": "codemeta:developmentStatus" },
+        "developmentLibrary": { "@id": "codemeta:developmentLibrary" },
+        "referencePublication": { "@id": "codemeta:referencePublication" },
+
+        "MLModelDownload": { "@id": "ind:MLModelDownload" },
+        "ModelCard": {"@id": "ind:ModelCard" },
+        "MLModel": { "@id": "ind:MLModel" },
+        "ModelTraining": { "@id": "ind:ModelTraining" },
+
+        "cloudProvider": { "@id": "ind:cloudProvider" },
+        "evaluatedOn": { "@id": "ind:evaluatedOn" },
+        "evaluationMetrics": { "@id": "ind:evaluationMetrics" },
+        "evaluationResults": { "@id": "ind:evaluationResults" },
+        "fineTunedFrom": { "@id": "ind:fineTunedFrom" },
+        "GPURequirements": { "@id": "ind:GPURequirements" },
+        "hardwareType": { "@id": "ind:hardwareType" },
+        "hasCO2eEmissions": { "@id": "ind:hasCO2eEmissions" },
+        "modelCategory": { "@id": "ind:modelCategory" },
+        "modelRisks": { "@id": "ind:modelRisks" },
+        "parameterSize": { "@id": "ind:parameterSize" },
+        "sharedBy": { "@id": "ind:sharedBy" },
+        "testedOn": { "@id": "ind:testedOn" },
+        "task": { "@id": "ind:task" },
+        "trainedOn": { "@id": "ind:trainedOn" },
+        "trainingRegion": { "@id": "ind:trainingRegion" },
+        "usageInstructions": { "@id": "ind:usageInstructions" },
+        "validatedOn": { "@id": "ind:validatedOn" },
+        "quantizationMethod": { "@id": "ind:quantizationMethod" },
+        "quantizationBits": { "@id": "ind:quantizationBits" },
+
+        "wasGeneratedBy": { "@id": "prov:wasGeneratedBy" },
+        "Activity": { "@id": "prov:Activity" }
+
+    },
+    "@graph": [
+        {
+            "@id": "ind:MLModelDownload",
+            "@type": "Class",
+            "subClassOf": {"@id": "schema:MediaObject"},
+            "label": "Machine Learning Model Download",
+            "comment": "Class representing a downloadable ML model object (models may be distributed in different sized and quantizations)"
+        },
+        {
+            "@id": "ind:ModelCard",
+            "@type": "Class",
+            "subClassOf": {"@id": "schema:CreativeWork"},
+            "label": "Model Card",
+            "comment": "Class aimed at representing metadata records for ML models."
+        },
+        {
+            "@id": "ind:MLModel",
+            "@type": "Class",
+            "subClassOf": {"@id": "schema:CreativeWork"},
+            "label": "Executable Machine Learning Model",
+            "comment": "Class to represent Machine Learning models that can be run for some task (e.g., those available in HuggingFace). A Machine Learning model may have more than one model distribution"
+        },
+        {
+            "@id": "ind:ModelTraining",
+            "@type": "Class",
+            "subClassOf": [{"@id": "schema:CreativeWork"},{"@id": "prov:Activity"}],
+            "label": "Model Training Activity",
+            "comment": "Action/Activity identifying that a model was trained, and its circumstances (training hours, hardware used, etc.)"
+        },
+        {
+            "@id": "ind:cloudProvider",
+            "@type": "Property",
+            "label": "cloud provider",
+            "comment": "Organization who provided the cloud infrastructure to train the model (e.g., Amazon)",
+            "domain": {"@id": "ind:ModelTraining"},
+            "range": {"@id": "schema:Organization"}
+        },
+        {
+            "@id": "ind:evaluatedOn",
+            "@type": "Property",
+            "label": "evaluated on",
+            "comment": "Dataset used for evaluating the model. The dataset used for evaluation may not have been part of the train/test/validation (e.g., a benchmark)",
+            "domain": {"@id": "ind:MLModel"},
+            "range": {"@id": "schema:Dataset"}
+        },
+        {
+            "@id": "ind:evaluationMetrics",
+            "@type": "Property",
+            "label": "evaluation metrics",
+            "comment": "Description of the metrics used for evaluating the ML model",
+            "domain": {"@id": "ind:MLModel"},
+            "range": {"@id": "schema:Text"}
+        },
+        {
+            "@id": "ind:evaluationResults",
+            "@type": "Property",
+            "label": "evaluation results",
+            "comment": "Description of the evaluation results obtained from the model (comparison, metric tables, etc.)",
+            "domain": {"@id": "ind:MLModel"},
+            "range": {"@id": "schema:Text"}
+        },
+        {
+            "@id": "ind:fineTunedFrom",
+            "@type": "Property",
+            "label": "finetuned from",
+            "comment": "Relationship to point to the source model used for fine tuning (if this model was finetuned from another one)",
+            "domain": {"@id": "ind:MLModel"},
+            "range": {"@id": "ind:MLModel"}
+        },
+        {
+            "@id": "ind:GPURequirements",
+            "@type": "Property",
+            "label": "GPU requirements",
+            "comment": "Description of the GPU requirements needed to run the model",
+            "domain": {"@id": "ind:MLModel"},
+            "range": {"@id": "schema:Text"}
+        },
+        {
+            "@id": "ind:hardwareType",
+            "@type": "Property",
+            "label": "hardware type",
+            "comment": "Description of the type of hardware used when training the model, so it can be used to report emissions.",
+            "domain": {"@id": "ind:ModelTraining"},
+            "range": {"@id": "schema:Text"}
+        },
+        {
+            "@id": "ind:hasCO2eEmissions",
+            "@type": "Property",
+            "label": "has CO2e emissions",
+            "comment": "Amount of CO2 equivalent emissions produced by the model. The unit should be included in the field (e.g., 10 tonnes)",
+            "domain": {"@id": "ind:MLModel"},
+            "range": {"@id": "schema:Text"}
+        },
+        {
+            "@id": "ind:modelCategory",
+            "@type": "Property",
+            "label": "model category",
+            "comment": "Category of the model (e.g., SVM, Transformer, Supervised, etc.)",
+            "domain": {"@id": "ind:MLModel"},
+            "range": {"@id": "schema:Text"}
+        },
+        {
+            "@id": "ind:modelRisks",
+            "@type": "Property",
+            "label": "model risks",
+            "comment": "Description of the risks and biases of the model, in a human-readable manner",
+            "domain": {"@id": "ind:MLModel"},
+            "range": {"@id": "schema:Text"}
+        },
+        {
+            "@id": "ind:parameterSize",
+            "@type": "Property",
+            "label": "parameter size",
+            "comment": "Brief description on the parameter size used to train the model (e.g., 7B). The unit (e.g., billions) must be included in the description",
+            "domain": {"@id": "ind:MLModel"},
+            "range": {"@id": "schema:Text"}
+        },
+        {
+            "@id": "ind:sharedBy",
+            "@type": "Property",
+            "label": "shared by",
+            "comment": "Person or Organization who shared the model online (e.g., uploading it to HuggingFace)",
+            "domain": {"@id": "ind:MLModel"}
+        },
+        {
+            "@id": "ind:testedOn",
+            "@type": "Property",
+            "label": "tested on",
+            "comment": "Link to the dataset used to test the model (following train/test/validation splits)",
+            "domain": {"@id": "ind:MLModel"},
+            "range": {"@id": "schema:Dataset"}
+        },
+        {
+            "@id": "ind:task",
+            "@type": "Property",
+            "label": "task",
+            "comment": "Task for which the model was trained or fine tuned. E.g., image classification, sentiment analysis, etc.",
+            "domain": {"@id": "ind:MLModel"},
+            "range": {"@id": "schema:Text"}
+        },
+        {
+            "@id": "ind:trainedOn",
+            "@type": "Property",
+            "label": "trained on",
+            "comment": "Link to the dataset(s) used for training the model.",
+            "domain": {"@id": "ind:MLModel"},
+            "range": {"@id": "schema:Dataset"}
+        },
+        {
+            "@id": "ind:trainingRegion",
+            "@type": "Property",
+            "label": "training region",
+            "comment": "Region where the training of a model took place (e.g., Europe, UK, etc.)",
+            "domain": {"@id": "ind:MLModel"},
+            "range": {"@id": "schema:Place"}
+        },
+        {
+            "@id": "ind:usageInstructions",
+            "@type": "Property",
+            "label": "usage instructions",
+            "comment": "Description of the instructions needed to run the model (e.g., to do inference on a task). Code snippets may be used for illustration",
+            "domain": {"@id": "ind:MLModel"},
+            "range": {"@id": "schema:Text"}
+        },
+        {
+            "@id": "ind:validatedOn",
+            "@type": "Property",
+            "label": "validated on",
+            "comment": "Link to the dataset used to validate the model. Typically the training dataset is a separated set from the train/testing set.",
+            "domain": {"@id": "ind:MLModel"},
+            "range": {"@id": "schema:Dataset"}
+        },
+        {
+            "@id": "ind:quantizationMethod",
+            "@type": "Property",
+            "label": "quantization method",
+            "comment": "Method used for quantizing the distribution of a model. Quantization is often needed to reduce the size of a large language model.",
+            "domain": {"@id": "ind:MLModelDownload"},
+            "range": {"@id": "schema:Text"}
+        },
+        {
+            "@id": "ind:quantizationBits",
+            "@type": "Property",
+            "label": "quantization bits",
+            "comment": "Number of bits used for model distribution quantization. E.g., 2 bits.",
+            "domain": {"@id": "ind:MLModelDownload"},
+            "range": {"@id": "schema:Text"}
+        }
+    ]
+}
