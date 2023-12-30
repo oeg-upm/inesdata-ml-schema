@@ -1,1 +1,110 @@
-TO DO
+---
+identifier: https://huggingface.co/oeg/software_benchmark_bio
+name: Software SciBERT
+version: 0.0.1
+keywords:
+  - software classification
+  - software mention
+headline: This model is a fine-tuned version of the SCIBERT model on a dataset
+  built based on the corpora SoMESCi and Softcite.
+description: >
+  This model is a fine-tuned version of the SCIBERT model on a
+  dataset built based on the corpora SoMESCi and Softcite. The objective of this
+  model is to extract software mentions from scientific texts in the BIO domain.
+task:
+  - Token classification
+  - Named Entity Recognition
+modelCategory:
+  - Supervised classification
+language:
+  - en
+license: https://www.apache.org/licenses/LICENSE-2.0
+parameterSize: 110M
+developmentStatus: Active
+dateCreated: 20-03-2023
+dateModified: 20-10-2023
+citation: >
+  Esteban Gonzalez and Daniel Garijo. Software Benchmark SCIBERT model. Retrieved from https://huggingface.co/oeg/software_benchmark_bio
+codeRepository: https://github.com/oeg-upm/software_mentions_benchmark
+referencePublication: add the DOI of your publication here
+developmentLibrary: Pytorch
+usageInstructions: >
+  Instructions on how to use the model go here.
+modelRisks:
+  - This model is to be used only for tool mention detection, as it was trained for that task exclusively.
+evaluationMetrics:
+  - Precision
+  - Recall
+  - F1-score
+evaluationResults: >
+  The corpus have been splitted in a 70-30 proportion for training and testing.
+  The results are:
+    - Precision: 0.823
+    - Recall: 0.814
+    - F1-score: 0.819
+softwareRequirements:
+  - Pytorch
+storageRequirements:
+  - 500 MB
+memoryRequirements:
+  - 16 GB of RAM
+operatingSystem:
+  - Linux
+processorRequirements: 
+GPURequirements: # No GPU requirements are needed for this model , this field may be omitted
+hasCO2eEmissions: 4.72 Kg # for illustration purposes
+distribution:
+  - encodingFormat: null
+    contentUrl: null
+    contentSize: null
+    # in this case, quantization does not apply (they can be removed)
+    quantizationBits: 
+    quantizationMethod: 
+trainedOn:
+  - identifier: https://doi.org/10.5281/zenodo.4701764
+    name: SOMESCI
+    description: >
+      SoMeSci - Software Mentions in Science is a gold standard knowledge graph of software mentions in scholarly articles created by manual annotation.
+    url: https://doi.org/10.5281/zenodo.4701764
+  - identifier: https://doi.org/10.5281/zenodo.7995565
+    name: SoftCite
+    description: >
+      This is the version 2.0 of the Softcite Dataset, a corpus of currently 4971 scientific articles with software mention annotations. This is a gold standard corpus, resulting from multi-stage annotations by a team of annotators and reconciliation phases by curators to solve disagreements
+    url: https://doi.org/10.5281/zenodo.7995565
+testedOn:
+  - identifier: https://github.com/oeg-upm/software_mentions_benchmark/tree/master/corpus
+    name: Software mentions benchmark
+    description: >
+      Corpus built from Somesci, Softcite and an extension for the AI domain 
+evaluatedOn: 
+  - identifier: https://github.com/oeg-upm/software_mentions_benchmark/tree/master/corpus
+    name: Software mentions benchmark
+    description: >
+      Corpus built from Somesci, Softcite and an extension for the AI domain
+validatedOn: # no additional dataset were used for validation
+author:
+  - name: Esteban Gonzalez Guardia
+    identifier: https://orcid.org/0000-0003-4112-6825
+  - name: Daniel Garijo
+    identifier: http://orcid.org/0000-0003-0454-7145
+successorOf: # In this case, this is the first version of the model
+funder:
+  - name: European Commission
+    identifier: https://cordis.europa.eu/
+sharedBy: 
+  - name: Esteban Gonzalez Guardia
+    identifier: https://orcid.org/0000-0003-4112-6825
+wasGeneratedBy:
+  - 
+    trainingRegion: 
+    - name: Europe (West)
+    cloudProvider: 
+    - name: Google Cloud Platform
+    - url: https://console.cloud.google.com/
+    duration: 100 hours
+    hardwareType: A100 PCle 40/80GB
+fineTunedFromModel: https://huggingface.co/allenai/scibert_scivocab_uncased
+sdPublisher:
+  - name: Ontology Engineering Group
+    url: https://oeg.fi.upm.es/index.php/en/index.html
+sdLicense: https://www.apache.org/licenses/LICENSE-2.0
