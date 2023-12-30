@@ -24,20 +24,31 @@ The following diagram shows the classes, properties and data properties of the i
 - **`ind`**: [https://w3id.org/inesdata#](https://w3id.org/inesdata#)
 - `prov`: [http://www.w3.org/ns/prov#](http://www.w3.org/ns/prov#)
 - `schema`: [http://schema.org/](http://schema.org/)
+- `rdfs`: [http://www.w3.org/2000/01/rdf-schema#](http://www.w3.org/2000/01/rdf-schema#)
 
 ## Classes
+The classes for the InesDATA machine learning schema are defined below. `SubClassOf` stands for `rdfs:subClassOf`. Likewise, `domain` and `range` stand for `rdfs:domain` and `rdfs:range`.
 
 ### Machine Learning Model Download (ind:MLModelDownload)
 Class representing a downloadable ML model object (models may be distributed in different sized and quantizations)
+- SubClassOf [schema:MediaObject](http://schema.org/MediaObject)
 
 ### Model Card (ind:ModelCard)
 Class aimed at representing metadata records for ML models.
+- SubClassOf [schema:CreativeWork](http://schema.org/CreativeWork)
+- SubClassOf [prov:Entity](http://www.w3.org/ns/prov#Entity)
 
 ### Executable Machine Learning Model (ind:MLModel)
 Class to represent Machine Learning models that can be run for some task (e.g., those available in HuggingFace). A Machine Learning model may have more than one model distribution
+- SubClassOf [schema:CreativeWork](http://schema.org/CreativeWork)
+- SubClassOf [prov:Entity](http://www.w3.org/ns/prov#Entity)
+
 
 ### Model Training Activity (ind:ModelTraining)
 Action/Activity identifying that a model was trained, and its circumstances (training hours, hardware used, etc.)
+- SubClassOf [schema:Action](http://schema.org/Action)
+- SubClassOf [prov:Activity](http://www.w3.org/ns/prov#Activity)
+
 
 ## Properties
 
