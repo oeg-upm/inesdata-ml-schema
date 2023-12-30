@@ -8,8 +8,8 @@ This vocabulary aims to be compatible with the efforts from the [FAIR4ML RDA com
 - **License**: Apache 2.0
 - **Version**: 0.0.1
 - **Status**: Draft
-- **Latest version URI**: `https://w3id.org/inesdata#` (not yet functional)
-- **This version URI**: `https://w3id.org/inesdata/0.0.1#` (not yet functional)
+- **Latest version URI**: `https://w3id.org/inesdata#` 
+- **This version URI**: `https://w3id.org/inesdata/0.0.1#` 
 - **prefix**: `ind`
 - **Date**: Dec 28th, 2023
 
