@@ -1,0 +1,173 @@
+@prefix schema: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+<https://w3id.org/inesdata#>
+  schema:author <https://orcid.org/0000-0002-8922-7521>, <https://orcid.org/0000-0003-0454-7145>, <https://portalcientifico.upm.es/en/ipublic/researcher/305816> ;
+  schema:license <https://spdx.org/licenses/Apache-2.0> ;
+  schema:name "Inesdata ML schema" ;
+  schema:version "0.0.1" .
+
+<https://w3id.org/inesdata#GPURequirements>
+  a rdf:Property ;
+  rdfs:comment "Description of the GPU requirements needed to run the model" ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "GPU requirements" ;
+  rdfs:range schema:Text .
+
+<https://w3id.org/inesdata#MLModel>
+  a rdfs:Class ;
+  rdfs:comment "Class to represent Machine Learning models that can be run for some task (e.g., those available in HuggingFace). A Machine Learning model may have more than one model distribution" ;
+  rdfs:label "Executable Machine Learning Model" ;
+  rdfs:subClassOf schema:CreativeWork .
+
+<https://w3id.org/inesdata#MLModelDownload>
+  a rdfs:Class ;
+  rdfs:comment "Class representing a downloadable ML model object (models may be distributed in different sized and quantizations)" ;
+  rdfs:label "Machine Learning Model Download" ;
+  rdfs:subClassOf schema:MediaObject .
+
+<https://w3id.org/inesdata#ModelCard>
+  a rdfs:Class ;
+  rdfs:comment "Class aimed at representing metadata records for ML models." ;
+  rdfs:label "Model Card" ;
+  rdfs:subClassOf schema:CreativeWork .
+
+<https://w3id.org/inesdata#ModelTraining>
+  a rdfs:Class ;
+  rdfs:comment "Action/Activity identifying that a model was trained, and its circumstances (training hours, hardware used, etc.)" ;
+  rdfs:label "Model Training Activity" ;
+  rdfs:subClassOf schema:CreativeWork, prov:Activity .
+
+<https://w3id.org/inesdata#cloudProvider>
+  a rdf:Property ;
+  rdfs:comment "Organization who provided the cloud infrastructure to train the model (e.g., Amazon)" ;
+  rdfs:domain <https://w3id.org/inesdata#ModelTraining> ;
+  rdfs:label "cloud provider" ;
+  rdfs:range schema:Organization .
+
+<https://w3id.org/inesdata#evaluatedOn>
+  a rdf:Property ;
+  rdfs:comment "Dataset used for evaluating the model. The dataset used for evaluation may not have been part of the train/test/validation (e.g., a benchmark)" ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "evaluated on" ;
+  rdfs:range schema:Dataset .
+
+<https://w3id.org/inesdata#evaluationMetrics>
+  a rdf:Property ;
+  rdfs:comment "Description of the metrics used for evaluating the ML model" ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "evaluation metrics" ;
+  rdfs:range schema:Text .
+
+<https://w3id.org/inesdata#evaluationResults>
+  a rdf:Property ;
+  rdfs:comment "Description of the evaluation results obtained from the model (comparison, metric tables, etc.)" ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "evaluation results" ;
+  rdfs:range schema:Text .
+
+<https://w3id.org/inesdata#fineTunedFrom>
+  a rdf:Property ;
+  rdfs:comment "Relationship to point to the source model used for fine tuning (if this model was finetuned from another one)" ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "finetuned from" ;
+  rdfs:range <https://w3id.org/inesdata#MLModel> .
+
+<https://w3id.org/inesdata#hardwareType>
+  a rdf:Property ;
+  rdfs:comment "Description of the type of hardware used when training the model, so it can be used to report emissions." ;
+  rdfs:domain <https://w3id.org/inesdata#ModelTraining> ;
+  rdfs:label "hardware type" ;
+  rdfs:range schema:Text .
+
+<https://w3id.org/inesdata#hasCO2eEmissions>
+  a rdf:Property ;
+  rdfs:comment "Amount of CO2 equivalent emissions produced by the model. The unit should be included in the field (e.g., 10 tonnes)" ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "has CO2e emissions" ;
+  rdfs:range schema:Text .
+
+<https://w3id.org/inesdata#modelCategory>
+  a rdf:Property ;
+  rdfs:comment "Category of the model (e.g., SVM, Transformer, Supervised, etc.)" ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "model category" ;
+  rdfs:range schema:Text .
+
+<https://w3id.org/inesdata#modelRisks>
+  a rdf:Property ;
+  rdfs:comment "Description of the risks and biases of the model, in a human-readable manner" ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "model risks" ;
+  rdfs:range schema:Text .
+
+<https://w3id.org/inesdata#parameterSize>
+  a rdf:Property ;
+  rdfs:comment "Brief description on the parameter size used to train the model (e.g., 7B). The unit (e.g., billions) must be included in the description" ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "parameter size" ;
+  rdfs:range schema:Text .
+
+<https://w3id.org/inesdata#quantizationBits>
+  a rdf:Property ;
+  rdfs:comment "Number of bits used for model distribution quantization. E.g., 2 bits." ;
+  rdfs:domain <https://w3id.org/inesdata#MLModelDownload> ;
+  rdfs:label "quantization bits" ;
+  rdfs:range schema:Text .
+
+<https://w3id.org/inesdata#quantizationMethod>
+  a rdf:Property ;
+  rdfs:comment "Method used for quantizing the distribution of a model. Quantization is often needed to reduce the size of a large language model." ;
+  rdfs:domain <https://w3id.org/inesdata#MLModelDownload> ;
+  rdfs:label "quantization method" ;
+  rdfs:range schema:Text .
+
+<https://w3id.org/inesdata#sharedBy>
+  a rdf:Property ;
+  rdfs:comment "Person or Organization who shared the model online (e.g., uploading it to HuggingFace)" ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "shared by" .
+
+<https://w3id.org/inesdata#task>
+  a rdf:Property ;
+  rdfs:comment "Task for which the model was trained or fine tuned. E.g., image classification, sentiment analysis, etc." ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "task" ;
+  rdfs:range schema:Text .
+
+<https://w3id.org/inesdata#testedOn>
+  a rdf:Property ;
+  rdfs:comment "Link to the dataset used to test the model (following train/test/validation splits)" ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "tested on" ;
+  rdfs:range schema:Dataset .
+
+<https://w3id.org/inesdata#trainedOn>
+  a rdf:Property ;
+  rdfs:comment "Link to the dataset(s) used for training the model." ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "trained on" ;
+  rdfs:range schema:Dataset .
+
+<https://w3id.org/inesdata#trainingRegion>
+  a rdf:Property ;
+  rdfs:comment "Region where the training of a model took place (e.g., Europe, UK, etc.)" ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "training region" ;
+  rdfs:range schema:Place .
+
+<https://w3id.org/inesdata#usageInstructions>
+  a rdf:Property ;
+  rdfs:comment "Description of the instructions needed to run the model (e.g., to do inference on a task). Code snippets may be used for illustration" ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "usage instructions" ;
+  rdfs:range schema:Text .
+
+<https://w3id.org/inesdata#validatedOn>
+  a rdf:Property ;
+  rdfs:comment "Link to the dataset used to validate the model. Typically the training dataset is a separated set from the train/testing set." ;
+  rdfs:domain <https://w3id.org/inesdata#MLModel> ;
+  rdfs:label "validated on" ;
+  rdfs:range schema:Dataset .
