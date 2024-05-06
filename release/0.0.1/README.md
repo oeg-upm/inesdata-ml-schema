@@ -30,7 +30,7 @@ The following diagram shows the classes, properties and data properties of the i
 The classes for the InesDATA machine learning schema are defined below. `SubClassOf` stands for `rdfs:subClassOf`. Likewise, `domain` and `range` stand for `rdfs:domain` and `rdfs:range`.
 
 ### Machine Learning Model Download (ind:MLModelDownload)
-Class representing a downloadable ML model object (models may be distributed in different sized and quantizations)
+Class representing a downloadable ML model object (models may be distributed in different sizes and quantizations)
 - SubClassOf [schema:MediaObject](http://schema.org/MediaObject)
 
 ### Model Card (ind:ModelCard)
